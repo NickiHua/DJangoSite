@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'videoshare.apps.VideoshareConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,7 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'firstsite.urls'
+ROOT_URLCONF = 'DjangoSite.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'firstsite.wsgi.application'
+WSGI_APPLICATION = 'DjangoSite.wsgi.application'
 
 
 # Database
