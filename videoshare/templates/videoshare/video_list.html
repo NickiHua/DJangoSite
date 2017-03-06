@@ -7,6 +7,18 @@
 <body>
 This is our video site! Welcome!
 <video width="320" height="240" controls="true" src="/static/testmovie.mp4" type="video/mp4">Test Video</video>
-<img src="/static/testpic.jpg">Test Pic</img>
+<img src="/static/testpic1.jpg">Test Pic</img>
+
+
+{% if filelist %}
+    <ul>
+    {% for file in filelist %}
+       <li><a href="/static/{{ file }}">{{ file }}</a></li>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No videos are available.</p>
+{% endif %}
 </body>
 </html>

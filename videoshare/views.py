@@ -17,7 +17,11 @@ from form import LoginForm
 from form import RegisterForm
 #from videoshare.models import User
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+
+# for list files in the directory.
+from os import listdir
+from os.path import isfile, join
 
 def auth_login(request):
     if request.method == 'GET':
@@ -66,9 +70,13 @@ def auth_register(request):
 
 def listvideo(request):
     if not request.user.is_authenticated:
-            return render(request, 'videoshare/login_error.html')
+        return render(request, 'videoshare/login_error.html')
     else:
-            return render(request, 'videoshare/video_list.html')
+        movedir = "C:\\MyProjects\\DJangoSite\\videoshare\\static"
+        filelist = [f for f in listdir(movedir) if isfile(join(movedir, f))]
+        print("Hello!!!!")
+        context = {'filelist': filelist}
+        return render(request, 'videoshare/video_list.html', context)
         #Register
 
 #def register(req):
